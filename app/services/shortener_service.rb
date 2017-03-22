@@ -17,6 +17,7 @@ class ShortenerService
       UrlPresenter.generate(url_record)
     else
       status 400
+      { error: 'url is not valid' }
     end
   end
 
