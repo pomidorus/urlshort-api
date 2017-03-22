@@ -11,7 +11,7 @@ class ShortenerService
   def generate
     if valid_url?(@url)
       url_record = Url.create!({url: @url})
-      url_record.short_url = ShortenerLib.bijective_encode(url_record.id)
+      url_record.short_url = ::ShortenerLib.bijective_encode(url_record.id)
       url_record.save!
 
       UrlPresenter.generate(url_record)
