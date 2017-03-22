@@ -12,8 +12,7 @@ module Shortener
       requires :url, type: String, desc: 'URL for shortening'
     end
     post '/' do
-      status 201
-      { short_url: '/abc123', url: params[:url] }
+      ShortenerService.new(params[:url]).generate
     end
   end
 end
