@@ -9,6 +9,7 @@ end
 
 gem 'grape'
 gem 'rails', '~> 5.1.0.rc1'
+gem 'rack-cors'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 
@@ -22,8 +23,6 @@ gem 'puma', '~> 3.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

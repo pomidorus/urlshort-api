@@ -1,6 +1,6 @@
 class ShortenerService
-  PROTOCOL_REG = /^(.*):\/\//
-  URL_REGEX = /\b((https?):\/\/([\w\.-]+[\.]\w+)?)([-A-Z0-9+&@#\/%?=~_|$!:,.;]*[-A-Z0-9+&@#\/%=~_|$])?/i
+  PROTOCOL_REG = %r{/^(.*):\/\//}
+  URL_REGEX = %r{/\b((https?):\/\/([\w\.-]+[\.]\w+)?)([-A-Z0-9+&@#\/%?=~_|$!:,.;]*[-A-Z0-9+&@#\/%=~_|$])?/i}
 
   attr_reader :url
 
