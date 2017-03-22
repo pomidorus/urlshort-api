@@ -13,7 +13,6 @@ describe ShortenerService do
     it 'creates a valid record' do
       service.generate
       expect(Url.last.url).to eq(url)
-      p Url.last
     end
   end
 

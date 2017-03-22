@@ -10,7 +10,7 @@ describe Shortener::API, type: :request do
 
       expect(response.status).to eq(201)
       expect(hash_response['url']).to eq(url)
-      expect(hash_response['short_url']).not_to eq('')
+      expect(hash_response['short_url']).to eq(Url.last.short_url)
     end
   end
 end
