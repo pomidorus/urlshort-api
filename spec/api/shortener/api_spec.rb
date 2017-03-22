@@ -21,11 +21,24 @@ describe Shortener::API, type: :request do
       @url_record.save!
     end
 
-    it 'ddd' do
-      get "/#{@url_record.short_url}"
+    context 'when url in the database' do
+      it 'returns valid response' do
+        get "/#{@url_record.short_url}"
+        hash_response = JSON.parse(response.body)
 
-      p response.body
-      expect(response.status).to eq(403)
+        expect(response.status).to eq(403)
+        expect(hash_response['url']).to eq(url)
+      end
+    end
+
+    context 'when url is not in the database' do
+      it 'returns error' do
+        get "/abc"
+        hash_response = JSON.parse(response.body)
+
+        expect(response.status).to eq(400)
+        expect(hash_response['error']).to eq('short_url is not found in the database')
+      end
     end
   end
 end

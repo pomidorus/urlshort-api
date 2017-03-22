@@ -4,12 +4,7 @@ class UrlDecoderService
   end
 
   def decode
-    if url_present?(@short_url)
-      UrlPresenter.short(@url_record)
-    else
-      status 400
-      { error: 'short_url is not found in the database' }
-    end
+    UrlPresenter.short(@url_record) if url_present?(@short_url)
   end
 
   private
