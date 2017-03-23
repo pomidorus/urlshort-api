@@ -28,7 +28,7 @@ describe Shortener::API, type: :request do
         get "/#{@url_record.short_url}"
         hash_response = JSON.parse(response.body)
 
-        expect(response.status).to eq(403)
+        expect(response.status).to eq(301)
         expect(hash_response['url']).to eq(url)
       end
     end

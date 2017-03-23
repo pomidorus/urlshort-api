@@ -11,7 +11,7 @@ module Shortener
     get '/:short_url' do
       result = UrlDecoderService.new(params[:short_url]).decode
       if result.present?
-        status 403
+        status 301
         header 'Location', result['url']
 
         result
